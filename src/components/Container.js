@@ -11,6 +11,10 @@ class Container extends React.Component {
     resize()
     window.addEventListener('resize', resize)
   }
+  componentWillUnmount(){
+    const {resize} = this.props
+    window.removeEventListener('resize', resize)
+  }
   render(){
     const {children,pageHeight} = this.props
     const style = {
