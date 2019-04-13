@@ -4,7 +4,7 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import Reducer from './modules/Reducer'
 import App from './components/App'
-import './index.scss'
+import './scss/index.scss'
 
 // inject some initial DOM into our HTML before letting React takeover
 let root = document.createElement('div')
