@@ -1,4 +1,4 @@
-import {test} from './Actions'
+import {test,resize} from './Actions'
 
 export const mapStateToProps = (state)=>{
   return{
@@ -8,6 +8,7 @@ export const mapStateToProps = (state)=>{
 
 export const mapDispatchToProps = (dispatch)=>{
   return {
-    test: ()=>{ dispatch(test) }
+    test(){ dispatch(test) },
+    resize(){ dispatch(resize()) }
   }
 }

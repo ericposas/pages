@@ -8,6 +8,8 @@ import './index.scss'
 
 // inject some initial DOM into our HTML before letting React takeover
 let root = document.createElement('div')
+document.body.style.height = `${window.innerHeight}px`
+root.style.height = `${window.innerHeight}px`
 document.body.appendChild(root)
 root.id = 'root'
 

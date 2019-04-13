@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {mapStateToProps,mapDispatchToProps} from '../modules/mSTP'
+import Container from './Container'
+import Page from './Page'
 
 class App extends React.Component {
   componentDidMount(){
@@ -11,7 +13,9 @@ class App extends React.Component {
     const {message} = this.props
     return(
       <React.Fragment>
-        <div>{message}</div>
+        <Container>
+          <Page></Page>
+        </Container>
       </React.Fragment>
     )
   }
