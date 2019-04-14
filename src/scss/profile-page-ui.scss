@@ -1,0 +1,24 @@
+$width: 100;
+$height: 100;
+
+.profile-page-ui-button{
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+  width: $width+px;
+  height: $height+px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform .35s ease;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  line-height: $height+px;
+  border: 2px solid white;
+  background-color: cornflowerblue;
+  font-family: 'Ubuntu', sans-serif;
+}
+.profile-page-ui-button:hover{
+  transform: scale(1.1);
+}

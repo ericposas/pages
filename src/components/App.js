@@ -2,20 +2,47 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {mapStateToProps,mapDispatchToProps} from '../modules/mSTP'
 import Container from './Container'
+import PageUIButton from './PageUIButton'
+import Title from './Title'
 import Page from './Page'
+import {
+  Route,
+  Link,
+  HashRouter
+} from 'react-router-dom'
+import uuid from 'uuid'
 
 class App extends React.Component {
   componentDidMount(){
-    const {test} = this.props
-    setTimeout(test, 2000)
   }
   render(){
-    const {message} = this.props
+    const {message,pages} = this.props
     return(
       <React.Fragment>
-        <Container>
-          <Page></Page>
-        </Container>
+        <HashRouter>
+          <Container>
+            <Title>{this.props.appTitle}</Title>
+            {
+              Object.keys(pages).map(page=>(
+                <React.Fragment key={uuid()}>
+                  <Link to={`/${page}`}>
+                    <PageUIButton name={page}></PageUIButton>
+                  </Link>
+                </React.Fragment>
+              ))
+            }
+            {
+              Object.keys(pages).map(page=>(
+                <React.Fragment key={uuid()}>
+                  <Route
+                    path={`/${page}`}
+                    render={ props => <Page title={page} /> }
+                  />
+                </React.Fragment>)
+              )
+            }
+          </Container>
+        </HashRouter>
       </React.Fragment>
     )
   }

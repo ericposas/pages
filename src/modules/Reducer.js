@@ -5,8 +5,17 @@ export default function Reducer(state, action){
   if(state === undefined){
     // default state
     return {
+      appTitle: 'Pages',
       message: 'React',
-      pageHeight: ''
+      pageHeight: '',
+      pages: {
+        'Page Uno' : {
+          items: [ 'text item 1', 'link 1', 'http://google.com/' ]
+        },
+        'Page Two' : {
+          items: [ 'some text to save' ]
+        }
+      }
     }
   }
   // switch statement to handle all incoming actions dispatched by
@@ -14,11 +23,15 @@ export default function Reducer(state, action){
   switch(action.type){
     case Types.Test:
       return {
-        message: action.message
+        ...state,
+        message: action.message,
+        ...state
       }
     case Types.Resize:
       return {
-        pageHeight: action.pageHeight
+        ...state,
+        pageHeight: action.pageHeight,
+        ...state
       }
     default:
       return state

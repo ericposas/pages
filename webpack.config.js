@@ -8,7 +8,9 @@ module.exports = {
     filename: './index.js'
   },
   devServer: {
-    publicPath: '/'
+    historyApiFallback: true,
+    publicPath: '/',
+    hot: true
   },
   mode: 'development',
   watchOptions: {
