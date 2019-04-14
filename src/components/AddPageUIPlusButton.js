@@ -22,7 +22,9 @@ class AddPageUIPlusButton extends React.Component {
     const {pageUIButtonsVisible} = this.props
     return(
       <React.Fragment>
-        <div onClick={this.clickHandler} className="add-page-plus-button">+</div>
+        <div className="add-page-plus-button-wrapper">
+          <div onClick={this.clickHandler} className="add-page-plus-button">+</div>
+        </div>
       </React.Fragment>
     )
   }

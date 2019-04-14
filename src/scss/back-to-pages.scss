@@ -1,0 +1,22 @@
+.back-to-all-pages-button-wrapper{
+  display: block;
+  position: absolute;
+}
+.back-to-all-pages-button{
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: Ubuntu, sans-serif;
+  background-color: cornflowerblue;
+  display: inline-block;
+  border-radius: 10px;
+  border: 2px solid white;
+  transition: transform .35s ease;
+  margin: 10px;
+  padding: 10px;
+}
+.back-to-all-pages-button:hover{
+  transform: scale(1.1);
+}

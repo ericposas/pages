@@ -45,10 +45,14 @@ $margin: 6px;
 $add-page-plus-width: 50;
 $add-page-plus-height: 50;
 
+.add-page-plus-button-wrapper{
+  right: 0;
+  display: block;
+  position: absolute;
+}
 .add-page-plus-button{
   color: white;
   margin: 10px;
-  float: right;
   cursor: pointer;
   font-size: 3em;
   width: $add-page-plus-width+px;

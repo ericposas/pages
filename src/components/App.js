@@ -5,12 +5,13 @@ import Container from './Container'
 import PageUIButton from './PageUIButton'
 import AddPageUIPlusButton from './AddPageUIPlusButton'
 import AddNewPageModal from './AddNewPageModal'
+import BackToMainButton from './BackToMainButton'
 import Title from './Title'
 import Page from './Page'
 import {
   Route,
   Link,
-  HashRouter
+  BrowserRouter as Router
 } from 'react-router-dom'
 import uuid from 'uuid'
 
@@ -21,8 +22,9 @@ class App extends React.Component {
     const {message, pages, newPage, pageUIButtonsVisible} = this.props
     return(
       <React.Fragment>
-        <HashRouter>
+        <Router>
           <Container>
+            { pageUIButtonsVisible !== 1 ? <BackToMainButton/> : null }
             <AddPageUIPlusButton/>
             { newPage !== null ? <AddNewPageModal/> : null }
             <Title>{this.props.appTitle}</Title>
@@ -48,7 +50,7 @@ class App extends React.Component {
               )
             }
           </Container>
-        </HashRouter>
+        </Router>
       </React.Fragment>
     )
   }
