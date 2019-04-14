@@ -4,10 +4,15 @@ import styled from 'styled-components'
 import PlusButton from './PlusButton'
 import Title from './Title'
 import TextItem from './TextItem'
+import Input from './Input'
 import {connect} from 'react-redux'
 import {mapStateToProps,mapDispatchToProps} from '../modules/mSTP'
 
 class Page extends React.Component {
+  componentDidMount(){
+    const {pages,title} = this.props
+    pages[title].input = null
+  }
   render(){
     const ContainingElement = styled.div`
       margin: 10px;
@@ -23,9 +28,9 @@ class Page extends React.Component {
     return(
       <ContainingElement>
         <Title>{title}</Title>
-        <PlusButton/>
+        <PlusButton pageName={title}/>
         {
-          pages[this.props.title].items.map(item=>{
+          pages[title].items.map(item=>{
             return (
               <React.Fragment key={uuid()}>
                 <TextItem content={item}/>
@@ -33,6 +38,7 @@ class Page extends React.Component {
             )
           })
         }
+        {pages[title].input ? <Input pageName={title} /> : null}
       </ContainingElement>
     )
   }

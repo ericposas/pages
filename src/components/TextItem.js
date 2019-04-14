@@ -6,9 +6,10 @@ export default class TextItem extends React.Component {
   render(){
     const StyledDiv = styled.div`
       color: white;
-      margin: 10px;
+      margin: 4px;
       margin-left: 20px;
       font-family: Ubuntu
+      display: inline-block;
     `
     const {content} = this.props
     let textItem
@@ -21,6 +22,7 @@ export default class TextItem extends React.Component {
     return(
       <React.Fragment>
         {textItem}
+        <br></br>
       </React.Fragment>
     )
   }

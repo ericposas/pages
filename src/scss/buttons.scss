@@ -3,9 +3,8 @@ $width: 100;
 $height: 40;
 $margin: 6px;
 
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
-
-.plus-button-text{
+.plus-button-text,
+.button-style{
   color: #FFF;
   font-family: 'Ubuntu', sans-serif;
   font-size: .75em;
@@ -16,7 +15,8 @@ $margin: 6px;
 .plus-button-symbol{
   font-size: 1.5em;
 }
-.plus-button-container{
+.plus-button-container,
+.button-style{
   float: right;
   margin: $margin;
   margin-top: -80px;
@@ -31,6 +31,13 @@ $margin: 6px;
   // width: $width;
   height: $height+px;
 }
-.plus-button-container:hover{
+.plus-button-container:hover,
+.button-style:hover{
   transform: scale(1.1);
+}
+
+// .button-style overrides
+.button-style{
+  float: none;
+  font-size: .65em;
 }

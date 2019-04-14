@@ -1,10 +1,16 @@
 import React from 'react'
-import '../scss/plus-button.scss'
+import '../scss/buttons.scss'
+import {connect} from 'react-redux'
+import {
+  mapStateToProps as mSTP,
+  mapDispatchToProps as mDTP
+} from '../modules/mSTP'
 
-export default class PlusButton extends React.Component {
+class PlusButton extends React.Component {
   render(){
+    const {addInput,pageName} = this.props
     return(
-      <div className="plus-button-container">
+      <div onClick={()=>{ addInput(pageName) }} className="plus-button-container">
         <div className="plus-button-text">
           <span className="plus-button-symbol">+ </span>
           Add Link / Text
@@ -13,3 +19,7 @@ export default class PlusButton extends React.Component {
     )
   }
 }
+
+const connected = connect(mSTP, mDTP)(PlusButton)
+
+export default connected
