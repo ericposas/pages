@@ -14,7 +14,10 @@ document.body.appendChild(root)
 root.id = 'root'
 
 // get persistedState from localStorage
-const persistedState = JSON.parse(localStorage.getItem('pages-app'))
+let persistedState
+if(localStorage.getItem('pages-app')){
+  persistedState = JSON.parse(localStorage.getItem('pages-app'))
+}
 
 // Redux Store
 const store = createStore(Reducer, persistedState)

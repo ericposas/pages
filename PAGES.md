@@ -2,8 +2,7 @@
 
 ## TODO
 ### Bugs
- - Using the address bar to navigate away fom any page (by deleting the page..
-    .. /route) keeps the page UI button in 'hidden' mode
+ -
 ### Add
  - Add an edit/delete feature on the text items
 

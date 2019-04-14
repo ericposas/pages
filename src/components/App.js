@@ -1,6 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {mapStateToProps,mapDispatchToProps} from '../modules/mSTP'
+import {
+  mapStateToProps as mSTP,
+  mapDispatchToProps as mDTP
+} from '../modules/mSTP'
 import Container from './Container'
 import PageUIButton from './PageUIButton'
 import AddPageUIPlusButton from './AddPageUIPlusButton'
@@ -11,6 +14,7 @@ import Page from './Page'
 import {
   Route,
   Link,
+  withRouter,
   BrowserRouter as Router
 } from 'react-router-dom'
 import uuid from 'uuid'
@@ -57,9 +61,6 @@ class App extends React.Component {
 }
 
 // connect our React component and export the connected component for use
-const connectedComponent = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+const connectedComponent = connect(mSTP, mDTP)(App)
 
 export default connectedComponent
