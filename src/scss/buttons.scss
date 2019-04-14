@@ -41,3 +41,37 @@ $margin: 6px;
   float: none;
   font-size: .65em;
 }
+
+$add-page-plus-width: 50;
+$add-page-plus-height: 50;
+
+.add-page-plus-button{
+  color: white;
+  margin: 10px;
+  float: right;
+  cursor: pointer;
+  font-size: 3em;
+  width: $add-page-plus-width+px;
+  height: $add-page-plus-height+px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform .35s ease;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  line-height: $add-page-plus-height*.9+px;
+  border: 2px solid white;
+  background-color: cornflowerblue;
+  font-family: 'Ubuntu', sans-serif;
+}
+.add-page-plus-button:hover{
+  transform: scale(1.1);
+}
+.add-page-plus-button:hover:after{
+  display: block;
+  content: 'Add a Page!';
+  font-size: .25em;
+  line-height: 1em;
+  margin-top: 10px;
+}

@@ -17,9 +17,7 @@ class Container extends React.Component {
   }
   render(){
     const {children,pageHeight} = this.props
-    const style = {
-      height: `${pageHeight}px`
-    }
+    const style = {}
     return(
       <div style={style}>
         {children}

@@ -6,8 +6,8 @@ export default function Reducer(state, action){
     // default state
     return {
       appTitle: 'Pages',
-      message: 'React',
-      pageHeight: '',
+      pageHeight: null,
+      newPage: null,
       pages: {
         'Page Uno' : {
           items: [ 'text item 1', 'link 1', 'http://google.com/' ],
@@ -23,6 +23,31 @@ export default function Reducer(state, action){
   // switch statement to handle all incoming actions dispatched by
   // functions in 'mapDispatchToProps()'
   switch(action.type){
+    case Types.AddPage: {
+      // Here we finally add a new page to the data model and React updates the view
+      const pages = Object.assign({}, state.pages)
+      pages[action.value] = {
+        items: [],
+        input: null
+      }
+      return {
+        ...state,
+        pages: pages
+      }
+    }
+    case Types.HidePageModal: {
+      // hide the "Add New Page" modal from view
+      const _state = Object.assign({}, state)
+      _state.newPage = null
+      return _state
+    }
+    case Types.ShowPageModal: {
+      // open new page input modal/box, where user can input the name of
+      //..the new page
+      const _state = Object.assign({}, state)
+      _state.newPage = 1
+      return _state
+    }
     case Types.TextItem: {
       // logic to add new link/text value to the appropriate pages object
       const pages = Object.assign({}, state.pages)
@@ -42,19 +67,10 @@ export default function Reducer(state, action){
         pages: pages
       }
     }
-    case Types.Test: {
-      return {
-        ...state,
-        message: action.message,
-        ...state
-      }
-    }
     case Types.Resize: {
-      return {
-        ...state,
-        pageHeight: action.pageHeight,
-        ...state
-      }
+      const _state = Object.assign({}, state)
+      _state.pageHeight = action.pageHeight
+      return _state
     }
     default: {
       return state

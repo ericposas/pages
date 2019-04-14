@@ -2,7 +2,10 @@ import {
   test,
   addInput,
   resize,
-  addTextItem
+  addTextItem,
+  showAddPageModal,
+  hideAddPageModal,
+  addPage
 } from './Actions'
 
 export const mapStateToProps = (state)=>{
@@ -16,6 +19,9 @@ export const mapDispatchToProps = (dispatch)=>{
     test(){ dispatch(test) },
     resize(){ dispatch(resize()) },
     addInput(pageName){ dispatch(addInput(pageName)) },
-    addTextItem(pageName,text){ dispatch(addTextItem(pageName,text)) }
+    addTextItem(pageName,text){ dispatch(addTextItem(pageName,text)) },
+    showAddPageModal(){ dispatch(showAddPageModal) },
+    hideAddPageModal(){ dispatch(hideAddPageModal) },
+    addPage(value){ dispatch(addPage(value)) }
   }
 }

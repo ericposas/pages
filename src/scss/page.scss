@@ -1,0 +1,13 @@
+$width: 100%;
+
+.page{
+  margin: 10px;
+  width: $width - 10 + px;
+  height: 80%;
+  // overflow: hidden;
+  display: block;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  border: 2px solid darkblue;
+  background-color: cornflowerblue;
+}

@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {mapStateToProps,mapDispatchToProps} from '../modules/mSTP'
 import Container from './Container'
 import PageUIButton from './PageUIButton'
+import AddPageUIPlusButton from './AddPageUIPlusButton'
+import AddNewPageModal from './AddNewPageModal'
 import Title from './Title'
 import Page from './Page'
 import {
@@ -16,11 +18,13 @@ class App extends React.Component {
   componentDidMount(){
   }
   render(){
-    const {message,pages} = this.props
+    const {message,pages,newPage} = this.props
     return(
       <React.Fragment>
         <HashRouter>
           <Container>
+            <AddPageUIPlusButton/>
+            { newPage !== null ? <AddNewPageModal/> : null }
             <Title>{this.props.appTitle}</Title>
             {
               Object.keys(pages).map(page=>(
