@@ -13,10 +13,15 @@ root.style.height = `${window.innerHeight}px`
 document.body.appendChild(root)
 root.id = 'root'
 
+// get persistedState from localStorage
+const persistedState = JSON.parse(localStorage.getItem('pages-app'))
+
 // Redux Store
-const store = createStore(Reducer)
+const store = createStore(Reducer, persistedState)
 store.subscribe(()=>{
-  // we'll add database support here
+  // save data to localStorage on each update
+  const _state = JSON.stringify(store.getState())
+  localStorage.setItem('pages-app', _state)
 })
 
 // Render

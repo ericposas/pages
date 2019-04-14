@@ -1,5 +1,4 @@
 import {
-  test,
   addInput,
   resize,
   addTextItem,
@@ -18,7 +17,6 @@ export const mapStateToProps = (state)=>{
 
 export const mapDispatchToProps = (dispatch)=>{
   return {
-    test(){ dispatch(test) },
     resize(){ dispatch(resize()) },
     addInput(pageName){ dispatch(addInput(pageName)) },
     addTextItem(pageName,text){ dispatch(addTextItem(pageName,text)) },

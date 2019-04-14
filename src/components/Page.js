@@ -20,7 +20,6 @@ class Page extends React.Component {
   }
   render(){
     const {pages, title, pageHeight, pageUIButtonsVisible} = this.props
-    console.log(pageUIButtonsVisible)
     return(
       <div className="page">
         <Title>{title}</Title>
