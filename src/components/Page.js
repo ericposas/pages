@@ -10,14 +10,17 @@ import '../scss/page.scss'
 
 class Page extends React.Component {
   componentDidMount(){
-    const {pages, title} = this.props
+    const {pages, title, hidePageUIButtons} = this.props
     pages[title].input = null
+    hidePageUIButtons()
+  }
+  componentWillUnmount(){
+    const {showPageUIButtons} = this.props
+    showPageUIButtons()
   }
   render(){
-    const {pages, title, pageHeight} = this.props
-    /*const style = {
-      height: pageHeight + 'px'
-    }*/
+    const {pages, title, pageHeight, pageUIButtonsVisible} = this.props
+    console.log(pageUIButtonsVisible)
     return(
       <div className="page">
         <Title>{title}</Title>

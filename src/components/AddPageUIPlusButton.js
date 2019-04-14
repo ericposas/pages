@@ -1,6 +1,7 @@
 import React from 'react'
 import '../scss/buttons.scss'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 import {
   mapStateToProps as mSTP,
   mapDispatchToProps as mDTP
@@ -12,10 +13,13 @@ class AddPageUIPlusButton extends React.Component {
     this.clickHandler = this.clickHandler.bind(this)
   }
   clickHandler(){
-    const {showAddPageModal} = this.props
+    const {showAddPageModal, showPageUIButtons, history} = this.props
     showAddPageModal()
+    showPageUIButtons()
+    history.push('/')
   }
   render(){
+    const {pageUIButtonsVisible} = this.props
     return(
       <React.Fragment>
         <div onClick={this.clickHandler} className="add-page-plus-button">+</div>
@@ -24,6 +28,6 @@ class AddPageUIPlusButton extends React.Component {
   }
 }
 
-const connected = connect(mSTP, mDTP)(AddPageUIPlusButton)
+const connected = withRouter(connect(mSTP, mDTP)(AddPageUIPlusButton))
 
 export default connected

@@ -6,6 +6,7 @@ export default function Reducer(state, action){
     // default state
     return {
       appTitle: 'Pages',
+      pageUIButtonsVisible: 1,
       pageHeight: null,
       newPage: null,
       pages: {
@@ -23,6 +24,16 @@ export default function Reducer(state, action){
   // switch statement to handle all incoming actions dispatched by
   // functions in 'mapDispatchToProps()'
   switch(action.type){
+    case Types.ShowPageUIButtons: {
+      const _state = Object.assign({}, state)
+      _state.pageUIButtonsVisible = action.pageUIVisible
+      return _state
+    }
+    case Types.HidePageUIButtons: {
+      const _state = Object.assign({}, state)
+      _state.pageUIButtonsVisible = action.pageUIVisible
+      return _state
+    }
     case Types.AddPage: {
       // Here we finally add a new page to the data model and React updates the view
       const pages = Object.assign({}, state.pages)

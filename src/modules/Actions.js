@@ -29,3 +29,7 @@ export const hideAddPageModal = { type: Types.HidePageModal }
 export const addPage = value=>{
   return { type: Types.AddPage, value: value }
 }
+
+export const hidePageUIButtons = { type: Types.HidePageUIButtons, pageUIVisible: null }
+
+export const showPageUIButtons = { type: Types.ShowPageUIButtons, pageUIVisible: 1 }

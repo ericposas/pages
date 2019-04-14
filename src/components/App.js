@@ -18,7 +18,7 @@ class App extends React.Component {
   componentDidMount(){
   }
   render(){
-    const {message,pages,newPage} = this.props
+    const {message, pages, newPage, pageUIButtonsVisible} = this.props
     return(
       <React.Fragment>
         <HashRouter>
@@ -27,13 +27,15 @@ class App extends React.Component {
             { newPage !== null ? <AddNewPageModal/> : null }
             <Title>{this.props.appTitle}</Title>
             {
-              Object.keys(pages).map(page=>(
+              pageUIButtonsVisible === 1
+              ? Object.keys(pages).map(page=>(
                 <React.Fragment key={uuid()}>
                   <Link to={`/${page}`}>
                     <PageUIButton name={page}></PageUIButton>
                   </Link>
                 </React.Fragment>
               ))
+              : null
             }
             {
               Object.keys(pages).map(page=>(

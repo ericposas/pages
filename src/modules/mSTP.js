@@ -5,7 +5,9 @@ import {
   addTextItem,
   showAddPageModal,
   hideAddPageModal,
-  addPage
+  addPage,
+  hidePageUIButtons,
+  showPageUIButtons
 } from './Actions'
 
 export const mapStateToProps = (state)=>{
@@ -22,6 +24,8 @@ export const mapDispatchToProps = (dispatch)=>{
     addTextItem(pageName,text){ dispatch(addTextItem(pageName,text)) },
     showAddPageModal(){ dispatch(showAddPageModal) },
     hideAddPageModal(){ dispatch(hideAddPageModal) },
-    addPage(value){ dispatch(addPage(value)) }
+    addPage(value){ dispatch(addPage(value)) },
+    hidePageUIButtons(){ dispatch(hidePageUIButtons) },
+    showPageUIButtons(){ dispatch(showPageUIButtons) }
   }
 }

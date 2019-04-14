@@ -1,4 +1,4 @@
-// ENUMS 
+// ENUMS
 
 const Types = Object.freeze({
   Test: 'TEST',
@@ -7,7 +7,9 @@ const Types = Object.freeze({
   TextItem: 'ADD_TEXT_ITEM',
   ShowPageModal: 'SHOW_PAGE_MODAL',
   HidePageModal: 'HIDE_PAGE_MODAL',
-  AddPage: 'ADD_PAGE'
+  AddPage: 'ADD_PAGE',
+  HidePageUIButtons: 'HIDE_PAGE_UI_BUTTONS',
+  ShowPageUIButtons: 'SHOW_PAGE_UI_BUTTONS'
 })
 
 export default Types
