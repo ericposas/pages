@@ -1,0 +1,32 @@
+$width: 100;
+$height: 100;
+
+.book-ui-inline{
+  display: inline-block;
+}
+
+.book-ui-wrapper{
+  display: table;
+  margin: 10px;
+}
+
+.book-ui-button{
+  color: white;
+  display: table-cell;
+  line-height: 1em;
+  word-wrap: break-word;
+  vertical-align: middle;
+  font-family: Ubuntu, sans-serif;
+  background-color: cornflowerblue;
+  transition: transform .35s ease;
+  border: 4px solid white;
+  // filter: brightness(.9);
+  text-align: center;
+  border-radius: 2px;
+  height: $height+px;
+  width: $width+px;
+}
+
+.book-ui-button:hover{
+  transform: scale(1.1);
+}

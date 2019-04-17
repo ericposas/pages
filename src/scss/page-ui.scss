@@ -1,15 +1,15 @@
 $width: 100;
 $height: 100;
 
-.profile-page-ui-inline{
+.page-ui-inline{
   display: inline-block;
 }
-.profile-page-ui-wrap{
+.page-ui-wrap{
   display: table;
   margin: 10px;
 }
-.profile-page-ui-inner{
-  color: white;
+.page-ui-inner{
+  color: cornflowerblue;
   cursor: pointer;
   overflow: hidden;
   line-height: 1em;
@@ -24,11 +24,10 @@ $height: 100;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  // line-height: $height+px;
-  border: 2px solid white;
-  background-color: cornflowerblue;
+  background-color: white;
+  border: 2px dashed cornflowerblue;
   font-family: 'Ubuntu', sans-serif;
 }
-.profile-page-ui-inner:hover{
+.page-ui-inner:hover{
   transform: scale(1.1);
 }

@@ -6,13 +6,13 @@ export default class Title extends React.Component {
     const StyledTitle = styled.div`
       color: white;
       font-family: 'Ubuntu';
-      font-size: 2em;
+      font-size: 1.5em;
       text-align: center;
       padding-top: 20px;
       padding-bottom: 30px;
     `
     return(
-      <StyledTitle>{this.props.children}</StyledTitle>
+      <StyledTitle style={this.props.styleOverride}>{this.props.children}</StyledTitle>
     )
   }
 }

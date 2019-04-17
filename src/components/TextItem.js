@@ -5,11 +5,12 @@ import isUrl from 'is-url'
 export default class TextItem extends React.Component {
   render(){
     const StyledDiv = styled.div`
-      color: white;
       margin: 4px;
       margin-left: 20px;
+      font-weight: bold;
       font-family: Ubuntu
       display: inline-block;
+      color: cornflowerblue;
     `
     const {content} = this.props
     let textItem

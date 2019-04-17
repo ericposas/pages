@@ -12,11 +12,40 @@
   background-color: cornflowerblue;
   display: inline-block;
   border-radius: 10px;
-  border: 2px solid white;
+  // border: 2px solid white;
   transition: transform .35s ease;
-  margin: 10px;
+  perspective-origin: left;
   padding: 10px;
+  margin: 10px;
+}
+.back-to-all-pages-button::before{
+  content: '';
+  display: block;
+  margin-top: 2px;
+  position: absolute;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid white;
 }
 .back-to-all-pages-button:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
+  animation: point .35s infinite;
+}
+
+@keyframes point{
+  0% {
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  50% {
+    padding: 8px;
+    margin-top: 11px;
+    margin-left: 2px;
+  }
+  100% {
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
 }

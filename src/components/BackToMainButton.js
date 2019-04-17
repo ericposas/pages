@@ -27,7 +27,7 @@ class BackToMainButton extends React.Component {
           : null
         }
         <div className="back-to-all-pages-button-wrapper">
-          <div onClick={this.clickHandler} className="back-to-all-pages-button">&#60; All Pages</div>
+          <div onClick={this.clickHandler} className="back-to-all-pages-button">&nbsp;&nbsp;&nbsp;&nbsp;All Pages</div>
         </div>
       </React.Fragment>
     )

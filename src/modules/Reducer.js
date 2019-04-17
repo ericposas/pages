@@ -5,19 +5,26 @@ export default function Reducer(state, action){
   if(state === undefined){
     // default state
     return {
-      appTitle: 'Pages',
+      appTitle: 'Pages App',
       pageUIButtonsVisible: 1,
       pageHeight: null,
       newPage: null,
       pages: {
-        'Page Uno' : {
+        'Page Uno': {
           items: [ 'text item 1', 'link 1', 'http://google.com/' ],
           input: null
         },
-        'Page Two' : {
+        'Page Two': {
           items: [ 'some text to save' ],
           input: null
         }
+      },
+      books: {
+        'Book One': [
+          {
+            name: 'Page Uno'
+          }
+        ]
       }
     }
   }

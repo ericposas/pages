@@ -65,16 +65,16 @@ $add-page-plus-height: 50;
   -moz-user-select: none;
   -webkit-user-select: none;
   line-height: $add-page-plus-height*.9+px;
-  border: 2px solid white;
+  // border: 2px solid white;
   background-color: cornflowerblue;
   font-family: 'Ubuntu', sans-serif;
 }
 .add-page-plus-button:hover{
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(90deg);
 }
 .add-page-plus-button:hover:after{
   display: block;
-  content: 'Add a Page!';
+  // content: 'Add a Page!';
   font-size: .25em;
   line-height: 1em;
   margin-top: 10px;

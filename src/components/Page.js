@@ -20,9 +20,13 @@ class Page extends React.Component {
   }
   render(){
     const {pages, title, pageHeight, pageUIButtonsVisible} = this.props
+    const style = {
+      fontSize: '2em',
+      color: 'cornflowerblue'
+    }
     return(
       <div className="page">
-        <Title>{title}</Title>
+        <Title styleOverride={style}>{title}</Title>
         <PlusButton pageName={title}/>
         {
           pages[title].items.map(item=>{
