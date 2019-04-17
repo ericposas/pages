@@ -29,7 +29,7 @@
 }
 .back-to-all-pages-button:hover{
   transform: scale(1.05);
-  animation: point .35s infinite;
+  animation: point .35s 2;
 }
 
 @keyframes point{

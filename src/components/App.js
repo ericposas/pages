@@ -19,7 +19,10 @@ import {
   withRouter,
   HashRouter as Router
 } from 'react-router-dom'
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContextProvider } from 'react-dnd'
 import uuid from 'uuid'
+import _ from 'lodash'
 
 class App extends React.Component {
   componentDidMount(){
@@ -28,6 +31,7 @@ class App extends React.Component {
     const {message, pages, books, newPage, pageUIButtonsVisible} = this.props
     return(
       <React.Fragment>
+        <DragDropContextProvider backend={HTML5Backend}>
         <Router>
           <Container>
             { pageUIButtonsVisible !== 1 ? <BackToMainButton/> : null }
@@ -82,12 +86,11 @@ class App extends React.Component {
             }
           </Container>
         </Router>
+        </DragDropContextProvider>
       </React.Fragment>
     )
   }
 }
 
 // connect our React component and export the connected component for use
-const connectedComponent = connect(mSTP, mDTP)(App)
-
-export default connectedComponent
+export default connect(mSTP, mDTP)(App)

@@ -5,7 +5,10 @@ import Title from './Title'
 import TextItem from './TextItem'
 import Input from './Input'
 import {connect} from 'react-redux'
-import {mapStateToProps,mapDispatchToProps} from '../modules/mSTP'
+import {
+  mapStateToProps as mSTP,
+  mapDispatchToProps as mDTP
+} from '../modules/mSTP'
 import '../scss/page.scss'
 
 class Page extends React.Component {
@@ -43,9 +46,4 @@ class Page extends React.Component {
   }
 }
 
-const connectedComponent = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Page)
-
-export default connectedComponent
+export default connect(mSTP, mDTP)(Page)
