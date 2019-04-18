@@ -25,10 +25,8 @@ import uuid from 'uuid'
 import _ from 'lodash'
 
 class App extends React.Component {
-  componentDidMount(){
-  }
   render(){
-    const {message, pages, books, newPage, pageUIButtonsVisible} = this.props
+    const { message, pages, books, newPage, pageUIButtonsVisible } = this.props
     return(
       <React.Fragment>
         <DragDropContextProvider backend={HTML5Backend}>

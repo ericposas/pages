@@ -31,17 +31,23 @@ export default function Reducer(state, action){
   // switch statement to handle all incoming actions dispatched by
   // functions in 'mapDispatchToProps()'
   switch(action.type){
-    case Types.ShowPageUIButtons: {
+    case Types.MERGE_PAGES: {
+
+    }
+    case Types.BEGIN_MERGE: {
+      console.log('show modal that allows you to name the newly created book')
+    }
+    case Types.SHOW_PAGE_UI_BUTTONS: {
       const _state = Object.assign({}, state)
       _state.pageUIButtonsVisible = action.pageUIVisible
       return _state
     }
-    case Types.HidePageUIButtons: {
+    case Types.HIDE_PAGE_UI_BUTTONS: {
       const _state = Object.assign({}, state)
       _state.pageUIButtonsVisible = action.pageUIVisible
       return _state
     }
-    case Types.AddPage: {
+    case Types.ADD_PAGE: {
       // Here we finally add a new page to the data model and React updates the view
       const pages = Object.assign({}, state.pages)
       pages[action.value] = {
@@ -53,20 +59,20 @@ export default function Reducer(state, action){
         pages: pages
       }
     }
-    case Types.HidePageModal: {
+    case Types.HIDE_PAGE_MODAL: {
       // hide the "Add New Page" modal from view
       const _state = Object.assign({}, state)
       _state.newPage = null
       return _state
     }
-    case Types.ShowPageModal: {
+    case Types.SHOW_PAGE_MODAL: {
       // open new page input modal/box, where user can input the name of
       //..the new page
       const _state = Object.assign({}, state)
       _state.newPage = 1
       return _state
     }
-    case Types.TextItem: {
+    case Types.TEXT_ITEM: {
       // logic to add new link/text value to the appropriate pages object
       const pages = Object.assign({}, state.pages)
       pages[action.pageName].items.push(action.text)
@@ -76,7 +82,7 @@ export default function Reducer(state, action){
         pages: pages
       }
     }
-    case Types.Input: {
+    case Types.INPUT: {
       // logic to add input value to the pages object
       const pages = Object.assign({}, state.pages)
       pages[action.pageName].input = 1
@@ -85,7 +91,7 @@ export default function Reducer(state, action){
         pages: pages
       }
     }
-    case Types.Resize: {
+    case Types.RESIZE: {
       const _state = Object.assign({}, state)
       _state.pageHeight = action.pageHeight
       return _state

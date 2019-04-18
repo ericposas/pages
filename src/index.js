@@ -14,17 +14,17 @@ document.body.appendChild(root)
 root.id = 'root'
 
 // get persistedState from localStorage
-let persistedState
+/*let persistedState
 if(localStorage.getItem('pages-app')){
   persistedState = JSON.parse(localStorage.getItem('pages-app'))
-}
+}*/
 
 // Redux Store
-const store = createStore(Reducer, persistedState)
+const store = createStore(Reducer) //, persistedState)
 store.subscribe(()=>{
   // save data to localStorage on each update
-  const _state = JSON.stringify(store.getState())
-  localStorage.setItem('pages-app', _state)
+  /*const _state = JSON.stringify(store.getState())
+  localStorage.setItem('pages-app', _state)*/
 })
 
 // Render

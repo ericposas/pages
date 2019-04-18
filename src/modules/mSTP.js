@@ -6,7 +6,9 @@ import {
   hideAddPageModal,
   addPage,
   hidePageUIButtons,
-  showPageUIButtons
+  showPageUIButtons,
+  beginMerge,
+  mergePages
 } from './Actions'
 
 export const mapStateToProps = (state)=>{
@@ -24,6 +26,8 @@ export const mapDispatchToProps = (dispatch)=>{
     hideAddPageModal(){ dispatch(hideAddPageModal) },
     addPage(value){ dispatch(addPage(value)) },
     hidePageUIButtons(){ dispatch(hidePageUIButtons) },
-    showPageUIButtons(){ dispatch(showPageUIButtons) }
+    showPageUIButtons(){ dispatch(showPageUIButtons) },
+    beginMerge(){ dispatch(beginMerge) },
+    mergePages(){ dispatch(mergePages) }
   }
 }

@@ -1,15 +1,17 @@
 // ENUMS
 
 const Types = Object.freeze({
-  Test: 'TEST',
-  Resize: 'RESIZE',
-  Input: 'INPUT',
-  TextItem: 'ADD_TEXT_ITEM',
-  ShowPageModal: 'SHOW_PAGE_MODAL',
-  HidePageModal: 'HIDE_PAGE_MODAL',
-  AddPage: 'ADD_PAGE',
-  HidePageUIButtons: 'HIDE_PAGE_UI_BUTTONS',
-  ShowPageUIButtons: 'SHOW_PAGE_UI_BUTTONS'
+  TEST: 'TEST',
+  RESIZE: 'RESIZE',
+  INPUT: 'INPUT',
+  TEXT_ITEM: 'ADD_TEXT_ITEM',
+  SHOW_PAGE_MODAL: 'SHOW_PAGE_MODAL',
+  HIDE_PAGE_MODAL: 'HIDE_PAGE_MODAL',
+  ADD_PAGE: 'ADD_PAGE',
+  HIDE_PAGE_UI_BUTTONS: 'HIDE_PAGE_UI_BUTTONS',
+  SHOW_PAGE_UI_BUTTONS: 'SHOW_PAGE_UI_BUTTONS',
+  BEGIN_MERGE: 'BEGIN_MERGE',
+  MERGE_PAGES: 'MERGE_PAGES'
 })
 
 export default Types

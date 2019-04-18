@@ -2,12 +2,18 @@ import React from 'react'
 import { DragSource, DropTarget } from 'react-dnd'
 import _ from 'lodash'
 import '../scss/page-ui.scss'
+import {
+  mapStateToProps as mSTP,
+  mapDispatchToProps as mDTP
+} from '../modules/mSTP'
+import { connect } from 'react-redux'
 
 const itemSource = {
+  isDragging(props, monitor){
+  },
   beginDrag(props){
-    return {
-      
-    }
+    console.log('drag started!')
+    return props
   },
   endDrag(props){
     console.log('drag ended.')
@@ -15,8 +21,9 @@ const itemSource = {
 }
 
 const itemDrop = {
-  drop(props){
-    console.log('dropped!')
+  drop(props, monitor){
+    const { beginMerge } = props
+    if(props.name !== monitor.getItem().name) beginMerge()
   }
 }
 
@@ -35,7 +42,13 @@ function targetCollect(connect, monitor){
 
 class PageUIButton extends React.Component {
   render(){
-    const { isDragging, connectDragSource, connectDropTarget, src } = this.props
+    const {
+      isDragging,
+      connectDragSource,
+      connectDropTarget,
+      beginMerge,
+      src
+    } = this.props
     return connectDropTarget(connectDragSource(
       <div className="page-ui-inline">
         <div className="page-ui-wrap">
@@ -48,7 +61,10 @@ class PageUIButton extends React.Component {
   }
 }
 
+// apparently, the order of the flow matters.
+// my props functions would not show up when connect() was called first
 export default _.flow(
-  DragSource('PAGE', itemSource, sourceCollect),
-  DropTarget('PAGE', itemDrop, targetCollect)
+  DragSource('PAGE_UI', itemSource, sourceCollect),
+  DropTarget('PAGE_UI', itemDrop, targetCollect),
+  connect(mSTP, mDTP)
 )(PageUIButton)
