@@ -22,6 +22,14 @@ export const addInput_InBook = (bookName, pageName)=>{
   }
 }
 
+export const hideInput_InBook = (bookName, pageName)=>{
+  return {
+    type: Types.HIDE_INPUT_INBOOK,
+    bookName: bookName,
+    pageName: pageName
+  }
+}
+
 export const addTextItem = (pageName,text)=>{
   return {
     type: Types.TEXT_ITEM,

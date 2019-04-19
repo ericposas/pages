@@ -1,6 +1,7 @@
 import {
   addInput,
   addInput_InBook,
+  hideInput_InBook,
   resize,
   addTextItem,
   addTextItem_InBook,
@@ -26,6 +27,7 @@ export const mapDispatchToProps = (dispatch)=>{
     resize(){ dispatch(resize()) },
     addInput(pageName){ dispatch(addInput(pageName)) },
     addInput_InBook(bookName, pageName){ dispatch(addInput_InBook(bookName, pageName)) },
+    hideInput_InBook(bookName, pageName){ dispatch(hideInput_InBook(bookName, pageName)) },
     addTextItem(pageName,text){ dispatch(addTextItem(pageName,text)) },
     addTextItem_InBook(bookName, pageName, text){ dispatch(addTextItem_InBook(bookName, pageName, text)) },
     showAddPageModal(){ dispatch(showAddPageModal) },

@@ -44,7 +44,7 @@ class Book extends React.Component {
             Object.keys(books[title]).map(page=>(
               <React.Fragment key={uuid()}>
                 <Link to={`/${title}/${page}`}>
-                  <BookPageUIButton pageName={page}></BookPageUIButton>
+                  <BookPageUIButton bookName={title} pageName={page}></BookPageUIButton>
                 </Link>
               </React.Fragment>
             ))

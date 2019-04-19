@@ -17,7 +17,7 @@ class BookPage extends React.Component {
   componentWillUnmount(){
   }
   render(){
-    const { books, bookName, pageName, pageHeight } = this.props
+    const { bookPageInput, books, bookName, pageName, pageHeight } = this.props
     const style = {
       fontSize: '2em',
       color: 'cornflowerblue'
@@ -39,7 +39,7 @@ class BookPage extends React.Component {
           })
         }
         {
-          books[bookName][pageName].input === 1 ? <Input_InBook bookName={bookName} pageName={pageName} /> : null
+          bookPageInput === 1 ? <Input_InBook bookName={bookName} pageName={pageName} /> : null
         }
       </div>
     )

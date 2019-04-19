@@ -10,6 +10,7 @@ export default function Reducer(state, action){
       pageHeight: null,
       newPage: null,
       newBook: null,
+      bookPageInput: null,
       pagesToBeMerged: null,
       pages: {
         'Page Uno': {
@@ -112,14 +113,9 @@ export default function Reducer(state, action){
     }
     case Types.TEXT_ITEM_INBOOK: {
       const _state = Object.assign({}, state)
-      const _books = _state.books
-      console.log(action)
-      _books[action.bookName][action.pageName].items.push(action.text)
-      _books[action.bookName][action.pageName].input = null
-      return {
-        ...state,
-        books: _books
-      }
+      _state.books[action.bookName][action.pageName].items.push(action.text)
+      _state.bookPageInput = null
+      return _state
     }
     case Types.INPUT: {
       // logic to add input value to the pages object
@@ -132,8 +128,12 @@ export default function Reducer(state, action){
     }
     case Types.INPUT_INBOOK: {
       const _state = Object.assign({}, state)
-      const _books = _state.books
-      _books[action.bookName][action.pageName].input = 1
+      _state.bookPageInput = 1
+      return _state
+    }
+    case Types.HIDE_INPUT_INBOOK: {
+      const _state = Object.assign({}, state)
+      _state.bookPageInput = null
       return _state
     }
     case Types.RESIZE: {

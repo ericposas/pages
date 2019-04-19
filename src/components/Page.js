@@ -14,7 +14,7 @@ import '../scss/page.scss'
 class Page extends React.Component {
   componentDidMount(){
     const {pages, title, hidePageUIButtons} = this.props
-    pages[title].input = null
+    pages[title].input = null //<-- this is probably mutating state directly, need to move to a function
     hidePageUIButtons()
   }
   componentWillUnmount(){
