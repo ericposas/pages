@@ -14,9 +14,26 @@ export const addInput = pageName=>{
   }
 }
 
+export const addInput_InBook = (bookName, pageName)=>{
+  return {
+    type: Types.INPUT_INBOOK,
+    bookName: bookName,
+    pageName: pageName
+  }
+}
+
 export const addTextItem = (pageName,text)=>{
   return {
     type: Types.TEXT_ITEM,
+    pageName: pageName,
+    text: text
+  }
+}
+
+export const addTextItem_InBook = (bookName, pageName, text)=>{
+  return {
+    type: Types.TEXT_ITEM_INBOOK,
+    bookName: bookName,
     pageName: pageName,
     text: text
   }
@@ -36,4 +53,12 @@ export const showPageUIButtons = { type: Types.SHOW_PAGE_UI_BUTTONS, pageUIVisib
 
 export const beginMerge = { type: Types.BEGIN_MERGE }
 
-export const mergePages = { type: Types.MERGE_PAGES }
+export const showCreateBookModal = (page1, page2)=>{
+  return { type: Types.SHOW_CREATE_BOOK_MODAL, pages: { p1: page1, p2: page2 } }
+}
+
+export const hideCreateBookModal = { type: Types.HIDE_CREATE_BOOK_MODAL }
+
+export const mergePages = bookName=>{
+  return { type: Types.MERGE_PAGES, bookName: bookName }
+}

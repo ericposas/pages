@@ -6,11 +6,11 @@ import {
   mapDispatchToProps as mDTP
 } from '../modules/mSTP'
 
-class PlusButton extends React.Component {
+class AddLinkTextButton_InBook extends React.Component {
   render(){
-    const {addInput,pageName} = this.props
+    const { addInput_InBook, bookName, pageName } = this.props
     return(
-      <div onClick={()=>{ addInput(pageName) }} className="plus-button-container">
+      <div onClick={()=>{ addInput_InBook(bookName, pageName) }} className="plus-button-container">
         <div className="plus-button-text">
           <span className="plus-button-symbol">+ </span>
           Add Link / Text
@@ -20,6 +20,6 @@ class PlusButton extends React.Component {
   }
 }
 
-const connected = connect(mSTP, mDTP)(PlusButton)
+const connected = connect(mSTP, mDTP)(AddLinkTextButton_InBook)
 
 export default connected

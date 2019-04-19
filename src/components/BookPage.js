@@ -1,9 +1,9 @@
 import uuid from 'uuid'
 import React from 'react'
-import AddLinkTextButton from './AddLinkTextButton'
+import AddLinkTextButton_InBook from './AddLinkTextButton_InBook'
 import Title from './Title'
 import TextItem from './TextItem'
-import Input from './Input'
+import Input_InBook from './Input_InBook'
 import {connect} from 'react-redux'
 import {
   mapStateToProps as mSTP,
@@ -11,28 +11,26 @@ import {
 } from '../modules/mSTP'
 import '../scss/page.scss'
 
-class Page extends React.Component {
+class BookPage extends React.Component {
   componentDidMount(){
-    const {pages, title, hidePageUIButtons} = this.props
-    pages[title].input = null
-    hidePageUIButtons()
   }
   componentWillUnmount(){
-    const {showPageUIButtons} = this.props
-    showPageUIButtons()
   }
   render(){
-    const {pages, title, pageHeight, pageUIButtonsVisible} = this.props
+    const { books, bookName, pageName, pageHeight } = this.props
     const style = {
       fontSize: '2em',
       color: 'cornflowerblue'
     }
+    console.log(
+      books[bookName][pageName]
+    )
     return(
       <div className="page">
-        <Title styleOverride={style}>{title}</Title>
-        <AddLinkTextButton pageName={title}/>
+        <Title styleOverride={style}>{pageName}</Title>
+        <AddLinkTextButton_InBook bookName={bookName} pageName={pageName}/>
         {
-          pages[title].items.map(item=>{
+          books[bookName][pageName].items.map(item=>{
             return (
               <React.Fragment key={uuid()}>
                 <TextItem content={item}/>
@@ -40,10 +38,12 @@ class Page extends React.Component {
             )
           })
         }
-        { pages[title].input ? <Input pageName={title} /> : null }
+        {
+          books[bookName][pageName].input === 1 ? <Input_InBook bookName={bookName} pageName={pageName} /> : null
+        }
       </div>
     )
   }
 }
 
-export default connect(mSTP, mDTP)(Page)
+export default connect(mSTP, mDTP)(BookPage)

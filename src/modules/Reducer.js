@@ -9,6 +9,8 @@ export default function Reducer(state, action){
       pageUIButtonsVisible: 1,
       pageHeight: null,
       newPage: null,
+      newBook: null,
+      pagesToBeMerged: null,
       pages: {
         'Page Uno': {
           items: [ 'text item 1', 'link 1', 'http://google.com/' ],
@@ -20,11 +22,6 @@ export default function Reducer(state, action){
         }
       },
       books: {
-        'Book One': [
-          {
-            name: 'Page Uno'
-          }
-        ]
       }
     }
   }
@@ -32,11 +29,42 @@ export default function Reducer(state, action){
   // functions in 'mapDispatchToProps()'
   switch(action.type){
     case Types.MERGE_PAGES: {
-
+      const _state = Object.assign({}, state)
+      const _books = _state.books
+      _books[action.bookName] = {}
+      _state.pagesToBeMerged.p1.page.inBook = true
+      _state.pagesToBeMerged.p2.page.inBook = true
+      _books[action.bookName][_state.pagesToBeMerged.p1.name] = _state.pagesToBeMerged.p1.page
+      _books[action.bookName][_state.pagesToBeMerged.p2.name] = _state.pagesToBeMerged.p2.page
+      delete _state.pages[_state.pagesToBeMerged.p1.name]
+      delete _state.pages[_state.pagesToBeMerged.p2.name]
+      return {
+        ...state,
+        newBook: null,
+        pagesToBeMerged: null,
+        books: _books
+      }
     }
-    case Types.BEGIN_MERGE: {
+    case Types.SHOW_CREATE_BOOK_MODAL: {
+      const _state = Object.assign({}, state)
+      const _p1 = _state.pages[action.pages.p1]
+      const _p2 = _state.pages[action.pages.p2]
+      return {
+        ...state,
+        newBook: 1,
+        pagesToBeMerged: { p1: { name:action.pages.p1, page:_p1 }, p2:{ name:action.pages.p2, page:_p2 } }
+      }
+    }
+    case Types.HIDE_CREATE_BOOK_MODAL: {
+      return {
+        ...state,
+        newBook: null,
+        pagesToBeMerged: null
+      }
+    }
+    /*case Types.BEGIN_MERGE: {
       console.log('show modal that allows you to name the newly created book')
-    }
+    }*/
     case Types.SHOW_PAGE_UI_BUTTONS: {
       const _state = Object.assign({}, state)
       _state.pageUIButtonsVisible = action.pageUIVisible
@@ -74,22 +102,39 @@ export default function Reducer(state, action){
     }
     case Types.TEXT_ITEM: {
       // logic to add new link/text value to the appropriate pages object
-      const pages = Object.assign({}, state.pages)
-      pages[action.pageName].items.push(action.text)
-      pages[action.pageName].input = null
+      const _pages = Object.assign({}, state.pages)
+      _pages[action.pageName].items.push(action.text)
+      _pages[action.pageName].input = null
       return {
         ...state,
-        pages: pages
+        pages: _pages
+      }
+    }
+    case Types.TEXT_ITEM_INBOOK: {
+      const _state = Object.assign({}, state)
+      const _books = _state.books
+      console.log(action)
+      _books[action.bookName][action.pageName].items.push(action.text)
+      _books[action.bookName][action.pageName].input = null
+      return {
+        ...state,
+        books: _books
       }
     }
     case Types.INPUT: {
       // logic to add input value to the pages object
-      const pages = Object.assign({}, state.pages)
-      pages[action.pageName].input = 1
+      const _pages = Object.assign({}, state.pages)
+      _pages[action.pageName].input = 1
       return {
         ...state,
-        pages: pages
+        pages: _pages
       }
+    }
+    case Types.INPUT_INBOOK: {
+      const _state = Object.assign({}, state)
+      const _books = _state.books
+      _books[action.bookName][action.pageName].input = 1
+      return _state
     }
     case Types.RESIZE: {
       const _state = Object.assign({}, state)

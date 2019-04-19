@@ -22,8 +22,9 @@ const itemSource = {
 
 const itemDrop = {
   drop(props, monitor){
-    const { beginMerge } = props
-    if(props.name !== monitor.getItem().name) beginMerge()
+    const { showCreateBookModal } = props
+    if(props.name !== monitor.getItem().name) showCreateBookModal(props.name, monitor.getItem().name)
+    else console.log('can\'t add a page to itself!')
   }
 }
 

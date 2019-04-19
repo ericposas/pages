@@ -1,10 +1,12 @@
 # Pages - App
 
 ## TODO
-### Bugs
- -
 ### Add
- - Add an edit/delete feature on the text items
+ - Need to force render after clicking "new text item" in book
+ - Also not rendering the added link (in book) until navigating away and back again
+ - Add page button needs to add a page to the current book view if a book is open
+ - Add ability to add stray pages to existing books
+ - Add an edit/delete feature on the text items 
 
 
 ## Features

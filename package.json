@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "is-url": "^1.2.4",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
@@ -41,6 +42,9 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread"
     ]
   },
   "author": "",

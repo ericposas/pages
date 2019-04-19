@@ -5,8 +5,8 @@ import {
   mapDispatchToProps as mDTP
 } from '../modules/mSTP'
 import Title from './Title'
-import PageUIButton from './PageUIButton'
-import Page from './Page'
+import BookPageUIButton from './BookPageUIButton'
+import BookPage from './BookPage'
 import {
   Link,
   Route,
@@ -35,24 +35,25 @@ class Book extends React.Component {
     const style = {
       fontSize: '2em'
     }
+    console.log(Object.keys(books[title]))
     return(
       <Router>
         <div className="book">
           <Title styleOverride={style}>{title}</Title>
           {
-            books[title].map(item=>(
+            Object.keys(books[title]).map(page=>(
               <React.Fragment key={uuid()}>
-                <Link to={`/${title}/${item.name}`}>
-                  <PageUIButton name={item.name}></PageUIButton>
+                <Link to={`/${title}/${page}`}>
+                  <BookPageUIButton pageName={page}></BookPageUIButton>
                 </Link>
               </React.Fragment>
             ))
           }
           {
-            books[title].map(item=>(
+            Object.keys(books[title]).map(page=>(
               <React.Fragment key={uuid()}>
-                <Route path={`/${title}/${item.name}`}
-                       render={ props => <Page title={item.name}/> }/>
+                <Route path={`/${title}/${page}`}
+                       render={ props => <BookPage bookName={title} pageName={page}/> }/>
               </React.Fragment>
             ))
           }

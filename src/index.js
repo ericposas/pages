@@ -25,6 +25,7 @@ store.subscribe(()=>{
   // save data to localStorage on each update
   /*const _state = JSON.stringify(store.getState())
   localStorage.setItem('pages-app', _state)*/
+  console.log(store.getState())
 })
 
 // Render

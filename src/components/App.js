@@ -9,6 +9,7 @@ import PageUIButton from './PageUIButton'
 import BookUIButton from './BookUIButton'
 import AddPageUIPlusButton from './AddPageUIPlusButton'
 import AddNewPageModal from './AddNewPageModal'
+import CreateBookModal from './CreateBookModal'
 import BackToMainButton from './BackToMainButton'
 import Title from './Title'
 import Page from './Page'
@@ -26,7 +27,7 @@ import _ from 'lodash'
 
 class App extends React.Component {
   render(){
-    const { message, pages, books, newPage, pageUIButtonsVisible } = this.props
+    const { message, pages, books, newPage, newBook, pageUIButtonsVisible } = this.props
     return(
       <React.Fragment>
         <DragDropContextProvider backend={HTML5Backend}>
@@ -35,6 +36,7 @@ class App extends React.Component {
             { pageUIButtonsVisible !== 1 ? <BackToMainButton/> : null }
             <AddPageUIPlusButton/>
             { newPage !== null ? <AddNewPageModal/> : null }
+            { newBook !== null ? <CreateBookModal/> : null }
             <Title>{this.props.appTitle}</Title>
             {/*render Page selection buttons that link to Page routes*/}
             {
