@@ -4,7 +4,10 @@
 ### Add
  - Add a pop-up warning modal when in areas specified (when user can't do a certain action bc a page exists, etc.)
  - Add page button needs to add a page to the current book view if a book is open, or add an inner "Add page" plus button inside the book view
- - Add an edit/delete feature on the text items
+ - Add an edit/delete feature on:
+   - text items
+   - pages
+   - books
 
 
 ## Features
