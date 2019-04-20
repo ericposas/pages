@@ -52,17 +52,20 @@ export default function Reducer(state, action){
     }
     case Types.MERGE_PAGES: {
       const _state = Object.assign({}, state)
-      const _books = _state.books
-      _books[action.bookName] = {}
-      _books[action.bookName][_state.pagesToBeMerged.p1.name] = _state.pagesToBeMerged.p1.page
-      _books[action.bookName][_state.pagesToBeMerged.p2.name] = _state.pagesToBeMerged.p2.page
       delete _state.pages[_state.pagesToBeMerged.p1.name]
       delete _state.pages[_state.pagesToBeMerged.p2.name]
       return {
         ...state,
         newBook: null,
         pagesToBeMerged: null,
-        books: _books
+        pages: _state.pages,
+        books: {
+          ...state.books,
+          [action.bookName]: {
+            [state.pagesToBeMerged.p1.name]: { ...state.pagesToBeMerged.p1.page },
+            [state.pagesToBeMerged.p2.name]: { ...state.pagesToBeMerged.p2.page }
+          }
+        }
       }
     }
     case Types.SHOW_CREATE_BOOK_MODAL: {
@@ -72,14 +75,13 @@ export default function Reducer(state, action){
         pagesToBeMerged: {
           p1: {
             name: action.pages.p1,
-            pages: state.pages[action.pages.p1]
+            page: { ...state.pages[action.pages.p1] }
           },
           p2: {
             name: action.pages.p2,
-            pages: state.pages[action.pages.p2]
+            page: { ...state.pages[action.pages.p2] }
           }
         }
-        // pagesToBeMerged: { p1: { name:action.pages.p1, page:_p1 }, p2:{ name:action.pages.p2, page:_p2 } }
       }
     }
     case Types.HIDE_CREATE_BOOK_MODAL: {
