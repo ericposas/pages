@@ -13,8 +13,12 @@ export default class TextItem extends React.Component {
       color: cornflowerblue;
     `
     const { content } = this.props
-    const trimContent = content.trim()
+    let trimContent = content.trim()
     let textItem
+    // detect .com and make the text a url if so
+    trimContent.indexOf('com') > 0 && isUrl(trimContent) === false
+    ? trimContent = 'http://' + trimContent
+    : trimContent = trimContent
     if(isUrl(trimContent)){
       textItem = <a href={trimContent} target="_blank"><StyledDiv>{trimContent}</StyledDiv></a>
     }else{
