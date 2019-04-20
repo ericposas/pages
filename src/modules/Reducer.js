@@ -43,12 +43,14 @@ export default function Reducer(state, action){
     }
     case Types.ADD_PAGE_TO_EXISTING_BOOK: {
       const _state = Object.assign({}, state)
-      if (!_state.books[action.bookName][action.pageName]) {
-        _state.books[action.bookName][action.pageName] = _state.pages[action.pageName]
-      }
+      if (!_state.books[action.bookName][action.pageName]) _state.books[action.bookName][action.pageName] = _state.pages[action.pageName]
       delete _state.pages[action.pageName]
-      _state.pageAddedToBook = 1
-      return _state
+      return {
+        ...state,
+        pageAddedToBook: 1,
+        pages: _state.pages,
+        books: _state.books
+      }
     }
     case Types.MERGE_PAGES: {
       const _state = Object.assign({}, state)
