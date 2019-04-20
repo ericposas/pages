@@ -12,10 +12,6 @@ import {
 import '../scss/page.scss'
 
 class BookPage extends React.Component {
-  componentDidMount(){
-  }
-  componentWillUnmount(){
-  }
   render(){
     const { bookPageInput, books, bookName, pageName, pageHeight } = this.props
     const style = {

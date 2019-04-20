@@ -13,16 +13,15 @@ import '../scss/page.scss'
 
 class Page extends React.Component {
   componentDidMount(){
-    const {pages, title, hidePageUIButtons} = this.props
-    pages[title].input = null //<-- this is probably mutating state directly, need to move to a function
+    const { pages, title, hidePageUIButtons } = this.props
     hidePageUIButtons()
   }
   componentWillUnmount(){
-    const {showPageUIButtons} = this.props
+    const { showPageUIButtons } = this.props
     showPageUIButtons()
   }
   render(){
-    const {pages, title, pageHeight, pageUIButtonsVisible} = this.props
+    const { pages, title, pageHeight, pageUIButtonsVisible } = this.props
     const style = {
       fontSize: '2em',
       color: 'cornflowerblue'

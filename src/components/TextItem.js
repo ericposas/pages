@@ -24,7 +24,6 @@ export default class TextItem extends React.Component {
     }else{
       textItem = <StyledDiv>{trimContent}</StyledDiv>
     }
-
     return(
       <React.Fragment>
         {textItem}
