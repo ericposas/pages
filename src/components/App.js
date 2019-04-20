@@ -31,61 +31,61 @@ class App extends React.Component {
     return(
       <React.Fragment>
         <DragDropContextProvider backend={HTML5Backend}>
-        <Router>
-          <Container>
-            { pageUIButtonsVisible !== 1 ? <BackToMainButton/> : null }
-            <AddPageUIPlusButton/>
-            { newPage !== null ? <AddNewPageModal/> : null }
-            { newBook !== null ? <CreateBookModal/> : null }
-            <Title>{this.props.appTitle}</Title>
-            {/*render Page selection buttons that link to Page routes*/}
-            {
-              pageUIButtonsVisible === 1
-              ? Object.keys(pages).map(page=>(
-                <React.Fragment key={uuid()}>
-                  <Link to={`/${page}`}>
-                    <PageUIButton name={page}></PageUIButton>
-                  </Link>
-                </React.Fragment>
-              ))
-              : null
-            }
-            {/*routes to Pages*/}
-            {
-              Object.keys(pages).map(page=>(
-                <React.Fragment key={uuid()}>
-                  <Route
-                    path={`/${page}`}
-                    render={ props => <Page title={page} /> }
-                  />
-                </React.Fragment>)
-              )
-            }
-            {/*render Book selection buttons that link to Book view routes*/}
-            {
-              pageUIButtonsVisible === 1
-              ? Object.keys(books).map(book=>(
-                <React.Fragment key={uuid()}>
-                  <Link to={`/${book}`}>
-                    <BookUIButton name={book}></BookUIButton>
-                  </Link>
-                </React.Fragment>
-              ))
-              : null
-            }
-            {/*render Book view routes*/}
-            {
-              Object.keys(books).map(book=>(
-                <React.Fragment key={uuid()}>
-                  <Route
-                    path={`/${book}`}
-                    render={ props => <Book title={book} /> }
-                  />
-                </React.Fragment>)
-              )
-            }
-          </Container>
-        </Router>
+          <Router>
+            <Container>
+              { pageUIButtonsVisible !== 1 ? <BackToMainButton/> : null }
+              <AddPageUIPlusButton/>
+              { newPage !== null ? <AddNewPageModal/> : null }
+              { newBook !== null ? <CreateBookModal/> : null }
+              <Title>{this.props.appTitle}</Title>
+              {/*render Page selection buttons that link to Page routes*/}
+              {
+                pageUIButtonsVisible === 1
+                ? Object.keys(pages).map(page=>(
+                  <React.Fragment key={uuid()}>
+                    <Link to={`/${page}`}>
+                      <PageUIButton name={page}></PageUIButton>
+                    </Link>
+                  </React.Fragment>
+                ))
+                : null
+              }
+              {/*routes to Pages*/}
+              {
+                Object.keys(pages).map(page=>(
+                  <React.Fragment key={uuid()}>
+                    <Route
+                      path={`/${page}`}
+                      render={ props => <Page title={page} /> }
+                    />
+                  </React.Fragment>)
+                )
+              }
+              {/*render Book selection buttons that link to Book view routes*/}
+              {
+                pageUIButtonsVisible === 1
+                ? Object.keys(books).map(book=>(
+                  <React.Fragment key={uuid()}>
+                    <Link to={`/${book}`}>
+                      <BookUIButton name={book}></BookUIButton>
+                    </Link>
+                  </React.Fragment>
+                ))
+                : null
+              }
+              {/*render Book view routes*/}
+              {
+                Object.keys(books).map(book=>(
+                  <React.Fragment key={uuid()}>
+                    <Route
+                      path={`/${book}`}
+                      render={ props => <Book title={book} /> }
+                    />
+                  </React.Fragment>)
+                )
+              }
+            </Container>
+          </Router>
         </DragDropContextProvider>
       </React.Fragment>
     )

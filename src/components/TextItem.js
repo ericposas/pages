@@ -12,12 +12,13 @@ export default class TextItem extends React.Component {
       display: inline-block;
       color: cornflowerblue;
     `
-    const {content} = this.props
+    const { content } = this.props
+    const trimContent = content.trim()
     let textItem
-    if(isUrl(content)){
-      textItem = <a href={content} target="_blank"><StyledDiv>{content}</StyledDiv></a>
+    if(isUrl(trimContent)){
+      textItem = <a href={trimContent} target="_blank"><StyledDiv>{trimContent}</StyledDiv></a>
     }else{
-      textItem = <StyledDiv>{content}</StyledDiv>
+      textItem = <StyledDiv>{trimContent}</StyledDiv>
     }
 
     return(

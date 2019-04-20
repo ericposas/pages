@@ -70,3 +70,9 @@ export const hideCreateBookModal = { type: Types.HIDE_CREATE_BOOK_MODAL }
 export const mergePages = bookName=>{
   return { type: Types.MERGE_PAGES, bookName: bookName }
 }
+
+export const addPageToExistingBook = (bookName, pageName)=>{
+  return { type: Types.ADD_PAGE_TO_EXISTING_BOOK, bookName: bookName, pageName: pageName }
+}
+
+export const unsetPageAdded = { type: Types.UNSET_PAGE_ADDED }

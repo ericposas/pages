@@ -1,6 +1,6 @@
+import _ from 'lodash'
 import React from 'react'
 import { DragSource, DropTarget } from 'react-dnd'
-import _ from 'lodash'
 import '../scss/page-ui.scss'
 import {
   mapStateToProps as mSTP,
@@ -22,9 +22,13 @@ const itemSource = {
 
 const itemDrop = {
   drop(props, monitor){
-    const { showCreateBookModal } = props
-    if(props.name !== monitor.getItem().name) showCreateBookModal(props.name, monitor.getItem().name)
-    else console.log('can\'t add a page to itself!')
+    const { showCreateBookModal, pagesToBeMerged } = props
+    if(props.name !== monitor.getItem().name){
+      showCreateBookModal(props.name, monitor.getItem().name)
+    }else if(props.name === monitor.getItem().name){
+      // PUT WARNING MODAL HERE 
+      console.log('can\'t add a page to itself!')
+    }
   }
 }
 
@@ -46,9 +50,7 @@ class PageUIButton extends React.Component {
     const {
       isDragging,
       connectDragSource,
-      connectDropTarget,
-      beginMerge,
-      src
+      connectDropTarget
     } = this.props
     return connectDropTarget(connectDragSource(
       <div className="page-ui-inline">
@@ -65,7 +67,7 @@ class PageUIButton extends React.Component {
 // apparently, the order of the flow matters.
 // my props functions would not show up when connect() was called first
 export default _.flow(
-  DragSource('PAGE_UI', itemSource, sourceCollect),
-  DropTarget('PAGE_UI', itemDrop, targetCollect),
+  DragSource('PAGE', itemSource, sourceCollect), // dragged id is 'PAGE'
+  DropTarget('PAGE', itemDrop, targetCollect), // accepts 'PAGE'
   connect(mSTP, mDTP)
 )(PageUIButton)

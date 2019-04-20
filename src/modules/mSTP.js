@@ -10,10 +10,11 @@ import {
   addPage,
   hidePageUIButtons,
   showPageUIButtons,
-  beginMerge,
   mergePages,
   showCreateBookModal,
-  hideCreateBookModal
+  hideCreateBookModal,
+  addPageToExistingBook,
+  unsetPageAdded
 } from './Actions'
 
 export const mapStateToProps = (state)=>{
@@ -35,9 +36,11 @@ export const mapDispatchToProps = (dispatch)=>{
     addPage(value){ dispatch(addPage(value)) },
     hidePageUIButtons(){ dispatch(hidePageUIButtons) },
     showPageUIButtons(){ dispatch(showPageUIButtons) },
-    beginMerge(){ dispatch(beginMerge) },
+    // beginMerge(){ dispatch(beginMerge) },
     showCreateBookModal(p1, p2){ dispatch(showCreateBookModal(p1, p2)) },
     hideCreateBookModal(){ dispatch(hideCreateBookModal) },
-    mergePages(bookName){ dispatch(mergePages(bookName)) }
+    mergePages(bookName){ dispatch(mergePages(bookName)) },
+    addPageToExistingBook(bookName, pageName){ dispatch(addPageToExistingBook(bookName, pageName)) },
+    unsetPageAdded(){ dispatch(unsetPageAdded) }
   }
 }

@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import '../scss/new-page-input-modal.scss'
 import {connect} from 'react-redux'
@@ -13,12 +14,22 @@ class AddNewPageModal extends React.Component {
     this.pageModal = this.pageModal.bind(this)
   }
   pageModal(){
-    const {hideAddPageModal} = this.props
+    const { hideAddPageModal } = this.props
     hideAddPageModal()
   }
   addNewPage(input){
-    const {addPage, hideAddPageModal} = this.props
-    addPage(input)
+    const { pages, addPage, hideAddPageModal } = this.props
+    const cleanInput = input.trim()
+    console.log(cleanInput)
+    if(input === ''){
+      // PUT WARNING MODAL HERE
+      console.log('provide a name for your page!')
+    }else if (!_.includes(Object.keys(pages), cleanInput)) {
+      addPage(cleanInput)
+    }else{
+      // PUT WARNING MODAL HERE 
+      console.log('page already exists!')
+    }
     hideAddPageModal()
   }
   render(){

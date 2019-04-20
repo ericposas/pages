@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import Types from './Types'
 
 // Reducer function with returns Redux state data
@@ -10,6 +11,7 @@ export default function Reducer(state, action){
       pageHeight: null,
       newPage: null,
       newBook: null,
+      pageAddedToBook: null,
       bookPageInput: null,
       pagesToBeMerged: null,
       pages: {
@@ -20,6 +22,10 @@ export default function Reducer(state, action){
         'Page Two': {
           items: [ 'some text to save' ],
           input: null
+        },
+        'Page 3': {
+          items: [ 'one item', 'item two' ],
+          input: null
         }
       },
       books: {
@@ -29,6 +35,21 @@ export default function Reducer(state, action){
   // switch statement to handle all incoming actions dispatched by
   // functions in 'mapDispatchToProps()'
   switch(action.type){
+    case Types.UNSET_PAGE_ADDED: {
+      return {
+        ...state,
+        pageAddedToBook: null
+      }
+    }
+    case Types.ADD_PAGE_TO_EXISTING_BOOK: {
+      const _state = Object.assign({}, state)
+      if (!_state.books[action.bookName][action.pageName]) {
+        _state.books[action.bookName][action.pageName] = _state.pages[action.pageName]
+      }
+      delete _state.pages[action.pageName]
+      _state.pageAddedToBook = 1
+      return _state
+    }
     case Types.MERGE_PAGES: {
       const _state = Object.assign({}, state)
       const _books = _state.books
@@ -63,9 +84,6 @@ export default function Reducer(state, action){
         pagesToBeMerged: null
       }
     }
-    /*case Types.BEGIN_MERGE: {
-      console.log('show modal that allows you to name the newly created book')
-    }*/
     case Types.SHOW_PAGE_UI_BUTTONS: {
       const _state = Object.assign({}, state)
       _state.pageUIButtonsVisible = action.pageUIVisible

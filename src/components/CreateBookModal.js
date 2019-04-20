@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import '../scss/create-book-input-modal.scss'
 import {connect} from 'react-redux'
@@ -17,8 +18,17 @@ class CreateBookModal extends React.Component {
     hideCreateBookModal()
   }
   addNewBook(input){
-    const {mergePages, hideCreateBookModal} = this.props
-    mergePages(input)
+    const { books, mergePages, pagesToBeMerged, hideCreateBookModal } = this.props
+    const cleanInput = input.trim()
+    if (input === '') {
+      // PUT WARNING MODAL HERE
+      console.log('provide a name for your new book!')
+    }else if (!_.includes(Object.keys(books), cleanInput)) {
+      mergePages(cleanInput)
+    }else{
+      // PUT WARNING MODAL HERE 
+      console.log('book already exists!')
+    }
     hideCreateBookModal()
   }
   render(){
