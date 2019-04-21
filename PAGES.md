@@ -14,6 +14,8 @@
    - text items
  - Delete book if no pages exist (all were deleted)
  - Add DeleteBook button
+ - React DnD not working in Firefox, causing features of app to break
+ - CSS is also broken in FF (component bg color is not white as it should be)
 
 
 ## Features
