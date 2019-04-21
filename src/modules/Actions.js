@@ -88,3 +88,11 @@ export const deleteTextItem_inBook = (textContent, bookName, pageName)=>{
     type: Types.DELETE_TEXT_ITEM_INBOOK, textContent: textContent, bookName: bookName, pageName: pageName
   }
 }
+
+export const deletePage = pageName=>{
+  return { type: Types.DELETE_PAGE, pageName: pageName }
+}
+
+export const deletePage_inBook = (bookName, pageName)=>{
+  return { type: Types.DELETE_PAGE_INBOOK, bookName: bookName, pageName: pageName }
+}

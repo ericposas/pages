@@ -1,0 +1,57 @@
+.page-delete-button-wrapper{
+  display: table;
+  position: absolute;
+}
+.page-delete-button-inner-wrapper{
+  display: table-cell;
+  position: relative;
+}
+.page-delete-button{
+  display: inline-block;
+  position: relative;
+  top: -80px;
+  left: 6px;
+  padding: 6px;
+  color: red;
+  border: 2px dashed red;
+  border-radius: 8px;
+  font-family: Ubuntu, sans-serif;
+  cursor: pointer;
+}
+.page-delete-button:hover{
+  animation: delete-shake .35s ease;
+  border: 2px solid red;
+  background-color: red;
+  color: white;
+}
+@keyframes delete-shake {
+  0% {
+    transform: translate(4px);
+  }
+  25%{
+    transform: translate(-4px);
+  }
+  50%{
+    transform: translate(4px);
+  }
+  75%{
+    transform: translate(-4px);
+  }
+  100%{
+    transform: translate(0px);
+  }
+}
+.page-delete-button-text-content{
+  position: relative;
+  text-align: center;
+  top: -1px;
+}
+.page-delete-button-text-context-x{
+  position: relative;
+  font-size: .5em;
+  top: -1px;
+}
+.page-delete-button-text-context-text{
+  position: relative;
+  font-size: .75em;
+}

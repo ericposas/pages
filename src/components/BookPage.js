@@ -1,6 +1,7 @@
 import uuid from 'uuid'
 import React from 'react'
 import AddLinkTextButton_InBook from './AddLinkTextButton_InBook'
+import PageDeleteButton from './PageDeleteButton'
 import Title from './Title'
 import TextItem from './TextItem'
 import Input_InBook from './Input_InBook'
@@ -21,9 +22,10 @@ class BookPage extends React.Component {
     console.log(
       books[bookName][pageName]
     )
-    return(
+    return (
       <div className="page">
         <Title styleOverride={style}>{pageName}</Title>
+        <PageDeleteButton context={'BookPage'} bookName={bookName} pageName={pageName}/>
         <AddLinkTextButton_InBook bookName={bookName} pageName={pageName}/>
         {
           books[bookName][pageName].items.map(item=>{

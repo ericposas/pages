@@ -1,6 +1,7 @@
 import uuid from 'uuid'
 import React from 'react'
 import AddLinkTextButton from './AddLinkTextButton'
+import PageDeleteButton from './PageDeleteButton'
 import Title from './Title'
 import TextItem from './TextItem'
 import Input from './Input'
@@ -29,6 +30,7 @@ class Page extends React.Component {
     return(
       <div className="page">
         <Title styleOverride={style}>{title}</Title>
+        <PageDeleteButton context={'Page'} bookName={null} pageName={title}/>
         <AddLinkTextButton pageName={title}/>
         {
           pages[title].items.map(item=>{

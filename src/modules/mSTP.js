@@ -16,7 +16,9 @@ import {
   addPageToExistingBook,
   unsetPageAdded,
   deleteTextItem,
-  deleteTextItem_inBook
+  deleteTextItem_inBook,
+  deletePage,
+  deletePage_inBook
 } from './Actions'
 
 export const mapStateToProps = (state)=>{
@@ -45,6 +47,8 @@ export const mapDispatchToProps = (dispatch)=>{
     addPageToExistingBook(bookName, pageName){ dispatch(addPageToExistingBook(bookName, pageName)) },
     unsetPageAdded(){ dispatch(unsetPageAdded) },
     deleteTextItem(textContent, pageName){ dispatch(deleteTextItem(textContent, pageName)) },
-    deleteTextItem_inBook(textContent, bookName, pageName){ dispatch(deleteTextItem_inBook(textContent, bookName, pageName)) }
+    deleteTextItem_inBook(textContent, bookName, pageName){ dispatch(deleteTextItem_inBook(textContent, bookName, pageName)) },
+    deletePage(pageName){ dispatch(deletePage(pageName)) },
+    deletePage_inBook(bookName, pageName){ dispatch(deletePage_inBook(bookName, pageName)) }
   }
 }

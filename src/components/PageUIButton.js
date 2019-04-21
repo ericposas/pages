@@ -26,7 +26,7 @@ const itemDrop = {
     if(props.name !== monitor.getItem().name){
       showCreateBookModal(props.name, monitor.getItem().name)
     }else if(props.name === monitor.getItem().name){
-      // PUT WARNING MODAL HERE 
+      // PUT WARNING MODAL HERE
       console.log('can\'t add a page to itself!')
     }
   }
@@ -46,6 +46,14 @@ function targetCollect(connect, monitor){
 }
 
 class PageUIButton extends React.Component {
+  constructor(){
+    super()
+    this.clickHandler = this.clickHandler.bind(this)
+  }
+  clickHandler(e){
+    e.stopPropagation()
+    console.log('click!')
+  }
   render(){
     const {
       isDragging,
@@ -54,9 +62,12 @@ class PageUIButton extends React.Component {
     } = this.props
     return connectDropTarget(connectDragSource(
       <div className="page-ui-inline">
+        {/*<span className="x-delete-page-button">
+          <span onClick={this.clickHandler} className="x-delete-page-inner">x</span>
+        </span>*/}
         <div className="page-ui-wrap">
           <div className="page-ui-inner">
-            {this.props.name}
+            <span className="page-ui-label">{this.props.name}</span>
           </div>
         </div>
       </div>

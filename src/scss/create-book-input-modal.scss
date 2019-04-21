@@ -4,6 +4,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.3);
+  z-index: 100;
 }
 .create-book-input-modal{
   top: 0;
@@ -23,6 +24,7 @@
   position: absolute;
   border-radius: 10px;
   border: 2px solid darkblue;
+  z-index: 150;
 }
 .create-book-input-modal input{
   height: 10%;

@@ -123,6 +123,22 @@ export default function Reducer(state, action){
         }
       }
     }
+    case Types.DELETE_PAGE: {
+      const _pages = Object.assign({}, state.pages)
+      delete _pages[action.pageName]
+      return {
+        ...state,
+        pages: _pages
+      }
+    }
+    case Types.DELETE_PAGE_INBOOK: {
+      const _books = Object.assign({}, state.books)
+      delete _books[action.bookName][action.pageName]
+      return {
+        ...state,
+        books: _books
+      }
+    }
     case Types.HIDE_PAGE_MODAL: {
       return {
         ...state,
