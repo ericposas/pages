@@ -1,11 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
+import '../scss/x-close-button.scss'
+import { connect } from 'react-redux'
+import {
+  mapStateToProps as mSTP,
+  mapDispatchToProps as mDTP
+} from '../modules/mSTP'
 import isUrl from 'is-url'
 
-export default class TextItem extends React.Component {
+class TextItem extends React.Component {
+  constructor(){
+    super()
+    this.clickHandler = this.clickHandler.bind(this)
+  }
+  clickHandler(){
+    const { content, context, deleteTextItem, deleteTextItem_inBook, bookName, pageName } = this.props
+    if (context === 'Page') deleteTextItem(content, pageName)
+    if (context === 'BookPage') deleteTextItem_inBook(content, bookName, pageName)
+  }
   render(){
     const StyledDiv = styled.div`
-      margin: 4px;
+      margin: 10px;
       margin-left: 20px;
       font-weight: bold;
       font-family: Ubuntu
@@ -24,11 +39,15 @@ export default class TextItem extends React.Component {
     }else{
       textItem = <StyledDiv>{trimContent}</StyledDiv>
     }
-    return(
+    return (
       <React.Fragment>
-        {textItem}
+        <span onClick={this.clickHandler} className="x-close-button">
+          <span className="x-close-inner">x</span>
+        </span>{textItem}
         <br></br>
       </React.Fragment>
     )
   }
 }
+
+export default connect(mSTP, mDTP)(TextItem)

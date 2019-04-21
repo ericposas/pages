@@ -14,7 +14,9 @@ import {
   showCreateBookModal,
   hideCreateBookModal,
   addPageToExistingBook,
-  unsetPageAdded
+  unsetPageAdded,
+  deleteTextItem,
+  deleteTextItem_inBook
 } from './Actions'
 
 export const mapStateToProps = (state)=>{
@@ -41,6 +43,8 @@ export const mapDispatchToProps = (dispatch)=>{
     hideCreateBookModal(){ dispatch(hideCreateBookModal) },
     mergePages(bookName){ dispatch(mergePages(bookName)) },
     addPageToExistingBook(bookName, pageName){ dispatch(addPageToExistingBook(bookName, pageName)) },
-    unsetPageAdded(){ dispatch(unsetPageAdded) }
+    unsetPageAdded(){ dispatch(unsetPageAdded) },
+    deleteTextItem(textContent, pageName){ dispatch(deleteTextItem(textContent, pageName)) },
+    deleteTextItem_inBook(textContent, bookName, pageName){ dispatch(deleteTextItem_inBook(textContent, bookName, pageName)) }
   }
 }

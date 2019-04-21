@@ -29,7 +29,7 @@ class BookPage extends React.Component {
           books[bookName][pageName].items.map(item=>{
             return (
               <React.Fragment key={uuid()}>
-                <TextItem content={item}/>
+                <TextItem bookName={bookName} pageName={pageName} context={'BookPage'} content={item}/>
               </React.Fragment>
             )
           })

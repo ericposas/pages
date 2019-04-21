@@ -76,3 +76,15 @@ export const addPageToExistingBook = (bookName, pageName)=>{
 }
 
 export const unsetPageAdded = { type: Types.UNSET_PAGE_ADDED }
+
+export const deleteTextItem = (textContent, pageName)=>{
+  return {
+    type: Types.DELETE_TEXT_ITEM, textContent: textContent, pageName: pageName
+  }
+}
+
+export const deleteTextItem_inBook = (textContent, bookName, pageName)=>{
+  return {
+    type: Types.DELETE_TEXT_ITEM_INBOOK, textContent: textContent, bookName: bookName, pageName: pageName
+  }
+}

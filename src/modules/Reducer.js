@@ -29,6 +29,12 @@ export default function Reducer(state, action){
         }
       },
       books: {
+        'My book': {
+          'Pagina': {
+            items: [ 'my item', 'mi taco' ],
+            input: null
+          }
+        }
       }
     }
   }
@@ -152,6 +158,33 @@ export default function Reducer(state, action){
             [action.pageName]: {
               ...state.books[action.bookName][action.pageName],
               items: [...state.books[action.bookName][action.pageName].items, action.text]
+            }
+          }
+        }
+      }
+    }
+    case Types.DELETE_TEXT_ITEM: {
+      return {
+        ...state,
+        pages: {
+          ...state.pages,
+          [action.pageName]: {
+            ...state.pages[action.pageName],
+            items: state.pages[action.pageName].items.filter(item=>item !== action.textContent)
+          }
+        }
+      }
+    }
+    case Types.DELETE_TEXT_ITEM_INBOOK: {
+      return {
+        ...state,
+        books: {
+          ...state.books,
+          [action.bookName]: {
+            ...state.books[action.bookName],
+            [action.pageName]: {
+              ...state.books[action.bookName][action.pageName],
+              items: state.books[action.bookName][action.pageName].items.filter(item=>item !== action.textContent)
             }
           }
         }

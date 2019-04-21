@@ -34,7 +34,7 @@ class Page extends React.Component {
           pages[title].items.map(item=>{
             return (
               <React.Fragment key={uuid()}>
-                <TextItem content={item}/>
+                <TextItem pageName={title} context={'Page'} content={item}/>
               </React.Fragment>
             )
           })

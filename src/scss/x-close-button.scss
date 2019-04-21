@@ -1,0 +1,20 @@
+.x-close-button{
+  font-family: Ubuntu, sans-serif;
+  font-weight: bold;
+  position: relative;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: cornflowerblue;
+  cursor: pointer;
+  left: 8px;
+  top: 0px;
+  transition: transform .35s ease;
+}
+.x-close-button:hover{
+  transform: scale(1.1);
+}
+.x-close-inner{
+  top: -1px;
+  position: relative;
+}
